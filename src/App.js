@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Hero from "./Components/Hero/Hero";
+import Navbar from "./Components/Navbar/Navbar";
+import Javascript from "./Components/Projects/Javascript";
+import Mern from "./Components/Projects/Mern";
+import Reactproject from "./Components/Projects/Reactproject";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Hero></Hero>}>
+         <Route index element={<Javascript></Javascript>}></Route>
+         <Route path='react' element={<Reactproject/>}></Route>
+         <Route path='mern' element={<Mern/>}></Route>
+        </Route>
+       </Routes>
     </div>
   );
 }
